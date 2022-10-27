@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="24fd992611434ccaa796d6ab92d70deb" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.FACULTET" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.KOLICHESTVO_CHASOV" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.KUR" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.OCENKA" Width="1.5" PointX="11.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PREDMET" Width="1.5" PointX="6" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SPECIALNOST" Width="1.5" PointX="3.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Student" Width="1.5" PointX="6" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TEACHER" Width="1.5" PointX="3.75" PointY="8.25" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_KURS_FACULTET" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Student_FACULTET" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_KOLICHESTVO_CHASOV_PREDMET" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_KOLICHESTVO_CHASOV_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_KURS_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_OCENKA_PREDMET" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_OCENKA_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PREDMET_TEACHER" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Student_SPECIALNOCT" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

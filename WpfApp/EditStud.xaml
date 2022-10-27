@@ -1,0 +1,184 @@
+﻿<Window x:Class="WpfApp.EditStud"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="Изменить запись о студенте" Height="604" Width="501">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#fec6d0"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#afb9d3"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#eeede7"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#eeede7"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Background="#eeede7">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="94*"></RowDefinition>
+            <RowDefinition Height="94*"></RowDefinition>
+            <RowDefinition Height="94*"></RowDefinition>
+            <RowDefinition Height="94*"></RowDefinition>
+            <RowDefinition Height="94*"></RowDefinition>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="91*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="ID студента" 
+               HorizontalAlignment="Left" 
+               Margin="27,15,0,0" 
+               VerticalAlignment="Top" 
+               Width="146" Height="26"/>
+
+        <TextBox x:Name="IdText" 
+                 Margin="27,46,26,17"/>
+
+        <Label Content="Фамилия" 
+               HorizontalAlignment="Left" 
+               Margin="22,10,0,0" 
+               VerticalAlignment="Top" Width="134" Grid.Row="1" Height="26"/>
+
+        <TextBox x:Name="SurnameText"
+                 Grid.Row="1" 
+                 Margin="22,41,32,22"/>
+
+        <Label Content="Name" 
+               HorizontalAlignment="Left" 
+               Margin="22,10,0,0" 
+               VerticalAlignment="Top" Width="90" Grid.Row="2" Height="26"/>
+
+        <TextBox x:Name="NameText"
+                 Grid.Row="2" 
+                 Margin="22,41,32,22"/>
+
+        <Label Content="Отчество" 
+               HorizontalAlignment="Left" 
+               Margin="22,10,0,0" 
+               VerticalAlignment="Top" Width="90" 
+               Grid.Row="3" Height="26"/>
+
+        <TextBox x:Name="PatronymicText"
+                 Grid.Row="3" 
+                 Margin="22,41,32,21"/>
+
+        <Label Content="№ зачетки" 
+               Margin="20,8,0,0" 
+               Grid.Row="1" 
+               VerticalAlignment="Top" 
+               HorizontalAlignment="Left" 
+               Width="134" Grid.Column="1" Height="26"/>
+
+        <TextBox x:Name="NomText"
+                 Grid.Row="1" 
+                 Margin="20,39,36,22" 
+                 Grid.Column="1"/>
+
+        <Label Content="ID специальность" 
+               Margin="20,9,0,0" 
+               Grid.Row="3" 
+               VerticalAlignment="Top" 
+               HorizontalAlignment="Left" 
+               Width="134" Grid.Column="1" Height="26"/>
+
+        <TextBox x:Name="IdSpecialnostText"
+                 Grid.Row="3" 
+                 Margin="20,40,36,21" 
+                 Grid.Column="1"/>
+
+        <Label Content="ID факультет" 
+               Margin="20,9,0,0" 
+               Grid.Row="2" 
+               VerticalAlignment="Top" 
+               HorizontalAlignment="Left" 
+               Width="134" Height="25" Grid.Column="1"/>
+
+        <TextBox x:Name="IdFacultetText"
+                 Grid.Row="2" 
+                 Margin="20,40,36,22" Grid.Column="1"/>
+
+        <Label Content="Дата поступления" 
+               Margin="20,11,0,0" 
+               Grid.Row="4" 
+               VerticalAlignment="Top" 
+               HorizontalAlignment="Left" 
+               Width="134" 
+               Grid.Column="1" Height="26"/>
+
+        <TextBox x:Name="DatePosatupleniaText"
+                 Grid.Row="4" 
+                 Margin="20,42,36,19" 
+                 Grid.Column="1"/>
+
+        <Button Style="{DynamicResource ButtonStyle}" 
+                x:Name="Add"
+                Grid.Row="6"
+                Margin="10,10,10,30"
+                Content="Изменить" Click="Edit_Click"/>
+
+        <Button x:Name="Cancel"
+                Style="{DynamicResource ButtonStyle}"
+                Grid.Row="6"
+                Margin="10,10,10, 30"
+                Content="Отменить" Grid.Column="1" Click="Cancel_Click"/>
+        <Label Content="Пол" 
+            Margin="22,14,94,50" 
+            Grid.Row="4"/>
+        <TextBox x:Name="Sex"
+            Grid.Row="4" 
+            Margin="22,46,34,19"/>
+    </Grid>
+</Window>
